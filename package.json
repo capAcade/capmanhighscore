@@ -1,0 +1,36 @@
+{
+  "name": "capmanhighscore",
+  "version": "0.0.1",
+  "description": "this is the highscore library for capman",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack --config webpack.config.prod.js",
+    "start:dev": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/capAcade/capmanhighscore.git"
+  },
+  "keywords": [
+    "capman",
+    "html5",
+    "game"
+  ],
+  "author": "Sven van Straalen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/capAcade/capmanhighscore/issues"
+  },
+  "files": [
+    "!*",
+    "dist/index.js"
+  ],
+  "homepage": "https://github.com/capAcade/capmanhighscore#readme",
+  "devDependencies": {
+    "copy-webpack-plugin": "^4.5.1",
+    "webpack": "^4.12.0",
+    "webpack-cli": "^3.0.7",
+    "webpack-dev-server": "^3.1.4"
+  }
+}

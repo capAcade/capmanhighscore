@@ -1,0 +1,47 @@
+{
+    "platforms": [
+        {"image": "groundStart", "x": 0, "y": 948},
+        {"image": "groundMid", "x": 76, "y": 948},
+        {"image": "groundMid", "x": 152, "y": 948},
+        {"image": "groundMid", "x": 228, "y": 948},
+        {"image": "groundMid", "x": 304, "y": 948},
+        {"image": "groundEnd", "x": 380, "y": 948},
+        {"image": "halfTile", "x": 456, "y": 985},
+        {"image": "halfTile", "x": 532, "y": 985},
+        {"image": "groundStart", "x": 608, "y": 948},
+        {"image": "groundMid", "x": 684, "y": 948},
+        {"image": "groundMid", "x": 760, "y": 948},
+        {"image": "groundMid", "x": 836, "y": 948},
+        {"image": "groundMid", "x": 912, "y": 948},
+        {"image": "groundMid", "x": 988, "y": 948},
+        {"image": "groundMid", "x": 1064, "y": 948},
+        {"image": "groundMid", "x": 1140, "y": 948},
+        {"image": "groundEnd", "x": 1204, "y": 948},
+        {"image": "platformFull", "x": 1004, "y": 848},
+        {"image": "platformFull", "x": 804, "y": 748},
+        {"image": "groundEnd", "x": 704, "y": 608},
+        {"image": "groundStart", "x": 632, "y": 608},
+        {"image": "groundEnd", "x": 408, "y": 608},
+        {"image": "groundStart", "x": 332, "y": 608},
+
+        {"image": "groundEnd", "x": 152, "y": 608},
+        {"image": "groundMid", "x": 76, "y": 608},
+        {"image": "groundStart", "x": 0, "y": 608},
+
+        
+        {"image": "platformFull", "x": 1128, "y": 788}
+    ],
+    "traps": [
+        {"image": "spikes", "x": 456, "y": 950},
+        {"image": "spikes", "x": 532, "y": 950}
+    ],
+    "coins": [
+        {"image": "coin", "x": 610, "y": 450},
+        {"image": "coin", "x": 530, "y": 450},
+        {"image": "coin", "x": 570, "y": 400}
+    ],
+    "doors": [
+        {"image": "doorOpen", "x": 200, "y": 469}
+    ],
+    "hero": {"x": 51, "y": 772}
+}
