@@ -47,12 +47,15 @@ const getGameScoreFromCookie = (name) =>{
     })[0];
 }
 
+const getRankPositionIndex = (score, rankList) =>{
+    return rankList.findIndex((element)=>{
+        return element.score < score;
+    });
+}
+
 export default class scoreConroller{
     constructor(game) {
         this.name = game.name;
-        this.ranking = getGameScoreFromCookie(this.name).ranking || mockScore;
-    }
-    saveNewScore(playerName, score){
         document.cookie = JSON.stringify({
             capManGameScore: [
                 {
@@ -61,5 +64,34 @@ export default class scoreConroller{
                 }
             ]
         })
+        this.ranking = getGameScoreFromCookie(this.name).ranking || mockScore;
+        
+
+        console.log(getRankPositionIndex(111, this.ranking))
+        console.log(getRankPositionIndex(5555, this.ranking))
+        console.log(getRankPositionIndex(3333, this.ranking))
+        this.saveNewScore('test', 3333);
+        console.log(this.ranking);
+    }
+    saveNewScore(playerName, score){
+
+        if(this.isScoreMoreThenLast) {
+            this.ranking.splice(getRankPositionIndex(score, this.ranking) -1, 0, {
+                name: playerName, 
+                score: score})
+            this.ranking.splice(10, 1);
+        }
+
+        document.cookie = JSON.stringify({
+            capManGameScore: [
+                {
+                    name: this.name,
+                    ranking: this.ranking
+                }
+            ]
+        })
+    }
+    isScoreMoreThenLast(score){
+        return this.ranking[this.ranking.length -1].score < score;
     }
 }
