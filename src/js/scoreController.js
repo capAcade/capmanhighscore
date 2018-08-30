@@ -40,11 +40,41 @@ const mockScore = [
         score: 1111
     }
 ];
+//#TODO change capmanGameScore an object makes live easier... capmanGameScore.[gameName]
+const getCapManGameScoreCoockie = () =>{
+    var out;
+    try {
+        out = JSON.parse(document.cookie).capManGameScore;
+    } catch {
+        out = [];
+    }
+    return out || [];
+}
 
 const getGameScoreFromCookie = (name) =>{
-    return JSON.parse(document.cookie).capManGameScore.filter((game)=>{
+    return getCapManGameScoreCoockie().filter((game)=>{
         return game.name === name;
     })[0];
+}
+
+const getIndexOfGame = (name) => {
+    return getCapManGameScoreCoockie().findIndex((element)=>{
+        return element.name === name;
+    });
+}
+
+const setGameScoreToCookie = (ranking, gameName) =>{
+    let out = getCapManGameScoreCoockie();
+    let gameIndex = getIndexOfGame(gameName);
+    if(gameIndex !== -1){
+        out[gameIndex].ranking = ranking;
+    } else {
+        out.push({
+            name: gameName,
+            ranking: ranking
+        })
+    }
+    document.cookie = JSON.stringify({capManGameScore: out});
 }
 
 const getRankPositionIndex = (score, rankList) =>{
@@ -56,40 +86,22 @@ const getRankPositionIndex = (score, rankList) =>{
 export default class scoreConroller{
     constructor(game) {
         this.name = game.name;
-        document.cookie = JSON.stringify({
-            capManGameScore: [
-                {
-                    name: this.name,
-                    ranking: this.ranking
-                }
-            ]
-        })
-        this.ranking = getGameScoreFromCookie(this.name).ranking || mockScore;
-        
 
-        console.log(getRankPositionIndex(111, this.ranking))
-        console.log(getRankPositionIndex(5555, this.ranking))
-        console.log(getRankPositionIndex(3333, this.ranking))
-        this.saveNewScore('test', 3333);
-        console.log(this.ranking);
+        //Check if there is already some scoring if not we create mock score
+        if(getGameScoreFromCookie(this.name)){
+            this.ranking = getGameScoreFromCookie(this.name).ranking || mockScore;
+        } else {
+            this.ranking = mockScore;
+        }
     }
     saveNewScore(playerName, score){
-
         if(this.isScoreMoreThenLast) {
             this.ranking.splice(getRankPositionIndex(score, this.ranking) -1, 0, {
                 name: playerName, 
                 score: score})
             this.ranking.splice(10, 1);
+            setGameScoreToCookie(this.ranking, this.name);
         }
-
-        document.cookie = JSON.stringify({
-            capManGameScore: [
-                {
-                    name: this.name,
-                    ranking: this.ranking
-                }
-            ]
-        })
     }
     isScoreMoreThenLast(score){
         return this.ranking[this.ranking.length -1].score < score;
