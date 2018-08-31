@@ -96,7 +96,7 @@ export default class scoreConroller{
     }
     saveNewScore(playerName, score){
         if(this.isScoreMoreThenLast) {
-            this.ranking.splice(getRankPositionIndex(score, this.ranking) -1, 0, {
+            this.ranking.splice(getRankPositionIndex(score, this.ranking), 0, {
                 name: playerName, 
                 score: score})
             this.ranking.splice(10, 1);
