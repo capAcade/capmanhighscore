@@ -2,7 +2,11 @@
 // all the classes just with one file from the node module
 
 import ScoreController from './scoreController';
+import ShowScore from './showScore';
+import EnterName from './enterName';
 
 export {
-  ScoreController
+  ScoreController as ScoreController ,
+  ShowScore as ShowScore,
+  EnterName as EnterName
 }

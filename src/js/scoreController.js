@@ -1,43 +1,43 @@
 const mockScore = [
     {
         name: 'Capgemini',
-        score: 9999
+        score: 999
     },
         {
         name: 'sogeti',
-        score: 8888
+        score: 888
     },
     {
         name: 'backelite',
-        score: 7777
+        score: 777
     },
     {
         name: 'blue harvest',
-        score: 6666
+        score: 666
     },
     {
         name: 'farenheit',
-        score: 5555
+        score: 555
     },
     {
         name: 'idin',
-        score: 4444
+        score: 444
     },
     {
         name: 'gettronics',
-        score: 3333
+        score: 333
     },
     {
         name: 'KPN',
-        score: 2222
+        score: 222
     },
     {
         name: 'infosys',
-        score: 1112
+        score: 112
     },
     {
         name: 'TCS',
-        score: 1111
+        score: 111
     }
 ];
 //#TODO change capmanGameScore an object makes live easier... capmanGameScore.[gameName]
