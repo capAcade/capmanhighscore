@@ -27,7 +27,7 @@ export default class ShowScore {
     init(score) {
         this.game.renderer.renderSession.roundPixels = true;
         this.keys = this.game.input.keyboard.addKeys({
-            fire: Phaser.KeyCode.CONTROL
+            fire: Phaser.KeyCode.U
         });
         this.score = score;
     }

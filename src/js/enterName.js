@@ -78,11 +78,11 @@ export default class EnterName {
     init(score, playerScore, initCB) {
         this.game.renderer.renderSession.roundPixels = true;
         this.keys = this.game.input.keyboard.addKeys({
-            left: Phaser.KeyCode.LEFT,
-            right: Phaser.KeyCode.RIGHT,
-            up: Phaser.KeyCode.UP,
-            down: Phaser.KeyCode.DOWN,
-            fire: Phaser.KeyCode.CONTROL
+            left: Phaser.KeyCode.A,
+            right: Phaser.KeyCode.D,
+            up: Phaser.KeyCode.W,
+            down: Phaser.KeyCode.S,
+            fire: Phaser.KeyCode.U
         });
         this.score = score;
         this.playerScore = playerScore;
