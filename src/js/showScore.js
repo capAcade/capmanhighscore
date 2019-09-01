@@ -26,8 +26,46 @@ export default class ShowScore {
     }
     init(score) {
         this.game.renderer.renderSession.roundPixels = true;
+        var keys = JSON.parse(localStorage.getItem("capManKeys"));
+        if(keys === null) {
+            keys = {
+                playerOne: {
+                    up: Phaser.KeyCode.W,
+                    down: Phaser.KeyCode.S,
+                    left: Phaser.KeyCode.A,
+                    right: Phaser.KeyCode.D,
+                    green: Phaser.KeyCode.J,
+                    black: Phaser.KeyCode.U,
+                    white: '',
+                    blueBelowWhite: '',
+                    topRightBlue: '',
+                    buttomRightBlue: ''
+                },
+                playerTwo: {
+                    up: '',
+                    down: '',
+                    left: '',
+                    right: '',
+                    green: '',
+                    black: '',
+                    white: '',
+                    blueBelowWhite: '',
+                    topRightBlue: '',
+                    buttomRightBlue: ''
+                },
+                pinBallLeft: '',
+                pinBallRight: '',
+                OnePlayerSelection: '',
+                TwoPlayerSelection: ''
+            }
+        }
+
         this.keys = this.game.input.keyboard.addKeys({
-            fire: Phaser.KeyCode.U
+            left: keys.playerOne.left,
+            right: keys.playerOne.right,
+            up: keys.playerOne.up,
+            down: keys.playerOne.down,
+            fire: keys.playerOne.green,
         });
         this.score = score;
     }
